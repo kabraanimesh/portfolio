@@ -6,7 +6,7 @@ import { z } from "zod";
 
 export async function registerRoutes(
   httpServer: Server,
-  app: Express
+  app: Express,
 ): Promise<Server> {
   // Profile
   app.get(api.profile.get.path, async (req, res) => {
@@ -33,7 +33,7 @@ export async function registerRoutes(
       if (err instanceof z.ZodError) {
         return res.status(400).json({
           message: err.errors[0].message,
-          field: err.errors[0].path.join('.'),
+          field: err.errors[0].path.join("."),
         });
       }
       throw err;
@@ -55,7 +55,7 @@ export async function registerRoutes(
       if (err instanceof z.ZodError) {
         return res.status(400).json({
           message: err.errors[0].message,
-          field: err.errors[0].path.join('.'),
+          field: err.errors[0].path.join("."),
         });
       }
       throw err;
@@ -77,7 +77,7 @@ export async function registerRoutes(
       if (err instanceof z.ZodError) {
         return res.status(400).json({
           message: err.errors[0].message,
-          field: err.errors[0].path.join('.'),
+          field: err.errors[0].path.join("."),
         });
       }
       throw err;
@@ -99,7 +99,7 @@ export async function registerRoutes(
       if (err instanceof z.ZodError) {
         return res.status(400).json({
           message: err.errors[0].message,
-          field: err.errors[0].path.join('.'),
+          field: err.errors[0].path.join("."),
         });
       }
       throw err;
@@ -116,7 +116,7 @@ export async function registerRoutes(
       if (err instanceof z.ZodError) {
         return res.status(400).json({
           message: err.errors[0].message,
-          field: err.errors[0].path.join('.'),
+          field: err.errors[0].path.join("."),
         });
       }
       throw err;
@@ -134,12 +134,14 @@ export async function seedDatabase() {
   if (!existingProfile) {
     await storage.createProfile({
       name: "Animesh Kabra",
-      title: "Senior Engineering Manager at TurboHire | Full-Stack Development Expert",
-      summary: "Passionate problem-solver with nearly 6 years of full-stack development experience. Strong expertise in ReactJS and C#, with proven ability to deliver high-quality solutions while continuously learning and improving. Committed to taking ownership of impactful projects and balancing efficiency with innovation to achieve success.",
+      title:
+        "Senior Engineering Manager at TurboHire | Full-Stack Development Expert",
+      summary:
+        "Passionate problem-solver with nearly 6 years of full-stack development experience. Strong expertise in ReactJS and C#, with proven ability to deliver high-quality solutions while continuously learning and improving. Committed to taking ownership of impactful projects and balancing efficiency with innovation to achieve success.",
       location: "Hyderabad, Telangana, India",
-      email: "contact@animeshkabra.com", // Placeholder
-      linkedin: "https://linkedin.com/in/animesh-kabra", // Placeholder
-      resumeUrl: "/assets/resume.pdf"
+      email: "kabraanimesh@gmail.com", // Placeholder
+      linkedin: "https://www.linkedin.com/in/animesh-kabra-bab06b10a/", // Placeholder
+      resumeUrl: "/assets/resume.pdf",
     });
 
     const skillsData = [
@@ -167,26 +169,28 @@ export async function seedDatabase() {
         company: "TurboHire",
         role: "Senior Engineering Manager",
         period: "April 2025 - Present",
-        description: "Leading end-to-end technology strategy, architecture, and delivery for TurboHire's core platform systems across GCP and Azure.",
+        description:
+          "Leading end-to-end technology strategy, architecture, and delivery for TurboHire's core platform systems across GCP and Azure.",
         achievements: [
           "Building scalable, secure, fault-tolerant architectures",
           "Driving platform modernization",
           "Oversee technical design reviews",
-          "Mentor engineering leads"
+          "Mentor engineering leads",
         ],
-        order: 1
+        order: 1,
       },
       {
         company: "TurboHire",
         role: "Senior Software Engineer",
         period: "April 2023 - March 2025",
-        description: "Designed, developed, and scaled core platform capabilities using C#, .NET, React, and MySQL.",
+        description:
+          "Designed, developed, and scaled core platform capabilities using C#, .NET, React, and MySQL.",
         achievements: [
           "Led end-to-end development of critical modules",
           "Architected next-generation IAM solution using Duende IdentityServer",
-          "Delivered 30+ external application integrations"
+          "Delivered 30+ external application integrations",
         ],
-        order: 2
+        order: 2,
       },
       {
         company: "TurboHire",
@@ -194,7 +198,7 @@ export async function seedDatabase() {
         period: "2021 - 2023",
         description: "Software Engineer 2 at TurboHire",
         achievements: [],
-        order: 3
+        order: 3,
       },
       {
         company: "Capgemini",
@@ -202,8 +206,8 @@ export async function seedDatabase() {
         period: "2019 - 2021",
         description: "Software Engineer at Capgemini",
         achievements: [],
-        order: 4
-      }
+        order: 4,
+      },
     ];
 
     for (const exp of experienceData) {
@@ -213,16 +217,19 @@ export async function seedDatabase() {
     const projectsData = [
       {
         title: "IAM with Duende IdentityServer",
-        description: "Architected next-generation IAM solution significantly improving platform security and authentication flows.",
+        description:
+          "Architected next-generation IAM solution significantly improving platform security and authentication flows.",
         technologies: ["Duende IdentityServer", ".NET", "Security"],
-        impact: "Enhanced security and system independence. Decoupled from legacy components."
+        impact:
+          "Enhanced security and system independence. Decoupled from legacy components.",
       },
       {
         title: "Platform Integration System",
-        description: "Delivered 30+ external application integrations via REST APIs.",
+        description:
+          "Delivered 30+ external application integrations via REST APIs.",
         technologies: ["REST API", "Integration", "C#"],
-        impact: "Connected external ecosystem."
-      }
+        impact: "Connected external ecosystem.",
+      },
     ];
 
     for (const proj of projectsData) {
